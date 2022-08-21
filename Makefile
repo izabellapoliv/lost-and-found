@@ -14,23 +14,23 @@ install: deploy
 
 ## Composes project using docker-compose
 deploy:
-	docker-compose -f deployments/docker-compose.yml build
-	docker-compose -f deployments/docker-compose.yml down -v
-	docker-compose -f deployments/docker-compose.yml up -d --force-recreate
+	docker compose -f deployments/docker-compose.yml build
+	docker compose -f deployments/docker-compose.yml down -v
+	docker compose -f deployments/docker-compose.yml up -d --force-recreate
 
 restart:
-	docker-compose -f deployments/docker-compose.yml down -v
-	docker-compose -f deployments/docker-compose.yml up -d --force-recreate
+	docker compose -f deployments/docker-compose.yml down -v
+	docker compose -f deployments/docker-compose.yml up -d --force-recreate
 
 logs:
-	docker-compose -f deployments/docker-compose.yml logs
+	docker compose -f deployments/docker-compose.yml logs
 
 migrate:
-	docker-compose -f deployments/docker-compose.yml run api python manage.py makemigrations
-	docker-compose -f deployments/docker-compose.yml run api python manage.py migrate
+	docker compose -f deployments/docker-compose.yml run api python manage.py makemigrations
+	docker compose -f deployments/docker-compose.yml run api python manage.py migrate
 
 tests:
-	docker-compose -f deployments/docker-compose.yml run api ./manage.py test
+	docker compose -f deployments/docker-compose.yml run api ./manage.py test
 
 ## Prints help message
 help:
