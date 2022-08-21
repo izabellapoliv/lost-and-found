@@ -4,23 +4,36 @@
 
 After setting up the basic folder structure (root-level files, deployments and requiments.txt), I had to run the following commands to setup the django app:
 ```
-docker-compose -f deployments/docker-compose.yml run api django-admin startproject website .
-docker-compose -f deployments/docker-compose.yml run api python manage.py startapp {microservice, such as api or calculations}
+docker compose -f deployments/docker-compose.yml run api django-admin startproject website .
+docker compose -f deployments/docker-compose.yml run api python manage.py startapp {microservice, such as api or calculations}
 ```
 
 To migrate the initial models, the ones that already come built into the Django framework, using SQLite:
 ```
-docker-compose -f deployments/docker-compose.yml run api python manage.py migrate
+docker compose -f deployments/docker-compose.yml run api python manage.py migrate
 ```
 
 And to create a super user to have access to Django's admin interface:
 ```
-docker-compose -f deployments/docker-compose.yml run api python manage.py createsuperuser
+docker compose -f deployments/docker-compose.yml run api python manage.py createsuperuser
 ```
 
 To create the NextJS app, run the following command and then inform the name of the project when asked:
 ```
 npx create-next-app@latest --ts
+```
+
+## Useful commands
+
+To create and run new migrations every time you have a new model:
+```
+docker compose -f deployments/docker-compose.yml run api python manage.py makemigrations
+docker compose -f deployments/docker-compose.yml run api python manage.py migrate
+```
+
+To install new dependencies to the NextJS app, simply run:
+```
+docker compose -f deployments/docker-compose.yml run frontend npm i {dependency name, such as tailwindcss}
 ```
 
 ## Terminal commands
