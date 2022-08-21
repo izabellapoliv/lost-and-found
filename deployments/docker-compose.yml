@@ -21,3 +21,15 @@ services:
       - ROOTPASSWORD=cBMJ6V4HH8djT6zm
     depends_on:
       - database
+  frontend:
+    container_name: lost-and-found-frontend
+    build:
+      context: ../
+      dockerfile: deployments/frontend/Dockerfile
+    ports:
+      - "5300:3000"
+    volumes: ['../frontend:/app']
+    environment:
+      - NODE_ENV=${ENVIRONMENT}
+    depends_on:
+      - api

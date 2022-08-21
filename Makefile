@@ -18,6 +18,9 @@ deploy:
 	docker compose -f deployments/docker-compose.yml down -v
 	docker compose -f deployments/docker-compose.yml up -d --force-recreate
 
+stop:
+	docker compose -f deployments/docker-compose.yml down -v
+
 restart:
 	docker compose -f deployments/docker-compose.yml down -v
 	docker compose -f deployments/docker-compose.yml up -d --force-recreate
