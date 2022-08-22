@@ -1,3 +1,5 @@
+import logging
+
 from django_filters.rest_framework import filters
 from django.core.validators import EMPTY_VALUES
 

@@ -8,4 +8,4 @@ class ItemFilterSet(FilterSet):
 
     class Meta:
         model = Item
-        fields = []
+        fields = '__all__'

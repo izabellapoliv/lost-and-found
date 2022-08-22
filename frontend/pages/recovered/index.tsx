@@ -34,7 +34,7 @@ export default function Home({ items }: Props) {
 }
 
 export async function getServerSideProps() {
-  const response = await fetch(`${process.env.API_URL}items?owner__isempty=false`)
+  const response = await fetch(`${process.env.API_URL}items?is_delivered=true`)
   const items = await response.json()
 
   // Pass data to the page via props

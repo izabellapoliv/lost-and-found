@@ -1,11 +1,18 @@
+import { GetStaticPropsContext } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import FormItem from '../../components/FormItem'
 
 import Sidebar from '../../components/Sidebar'
+import type { Item } from '../../interfaces'
 
-export default function Home() {
+type Props = {
+    item: Item,
+}
+
+export default function Home({ item }: Props) {
     const router = useRouter()
+    const { id } = router.query
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -15,16 +22,16 @@ export default function Home() {
         }
 
         const options = {
-            method: 'POST',
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(data),
         }
 
-        const response = await fetch(`api/items`, options)
-        if (response.status == 201) {
-            router.push(`/`)
+        const response = await fetch(`api/items/${id}`, options)
+        if (response.status == 200) {
+            router.reload
         }
     }
 
@@ -42,10 +49,20 @@ export default function Home() {
                     <div className="w-full h-full rounded">
                         <FormItem
                             handleSubmit={handleSubmit}
+                            item={item}
                         />
                     </div>
                 </div>
             </div>
         </>
     )
+}
+
+export async function getServerSideProps(context: GetStaticPropsContext) {
+    const { id } = context.params
+    const response = await fetch(`${process.env.API_URL}items/${id}`)
+    const item = await response.json()
+
+    // Pass data to the page via props
+    return { props: { item } }
 }
