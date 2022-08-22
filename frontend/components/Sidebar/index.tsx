@@ -4,7 +4,11 @@ import Desktop from "./Menu/Desktop"
 import Mobile from "./Menu/Mobile"
 import Search from "./Search"
 
-export default function Sidebar() {
+type Props = {
+    query: string,
+}
+
+export default function Sidebar({ query }: Props) {
     return (
         <>
             {/* Remove class [ hidden ] and replace [ sm:flex ] with [ flex ] */}
@@ -12,7 +16,7 @@ export default function Sidebar() {
                 <div className="px-8">
                     <Logo />
                     <Desktop />
-                    <Search />
+                    <Search query={query} />
                 </div>
                 <Footer />
             </div>

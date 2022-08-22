@@ -72,7 +72,7 @@ Postman is recommended for API testing.
         - Search by title
         - Sidebar menu must be active accordingly
     - ~~Page to insert/edit item~~
-    - Set an item as found (must inform the owner and date found, default current date)
+    - ~~Set an item as found (must inform the owner and date found, default current date)~~
     - Dark mode toggle
     - Fill numbers on the sidebar correctly
 - Allow picture upload (need to create database field)

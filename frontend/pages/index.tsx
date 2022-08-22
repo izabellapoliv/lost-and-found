@@ -1,4 +1,6 @@
+import { GetStaticPropsContext } from 'next'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 
 import Sidebar from '../components/Sidebar'
 import Table from '../components/Table'
@@ -10,6 +12,9 @@ type Props = {
 }
 
 export default function Home({ items }: Props) {
+  const router = useRouter()
+  const { query } = router.query
+
   return (
     <>
       <div className="flex flex-no-wrap">
@@ -17,7 +22,7 @@ export default function Home({ items }: Props) {
           <title>Lost and Found</title>
         </Head>
 
-        <Sidebar />
+        <Sidebar query={query == undefined ? '' : query.toString()} />
         {/* Remove class [ h-64 ] when adding a card block */}
         <div className="container mx-auto py-10 h-64 md:w-4/5 w-11/12 px-6">
           {/* Remove class [ border-dashed border-2 border-gray-300 ] to remove dotted border */}
@@ -33,8 +38,9 @@ export default function Home({ items }: Props) {
   )
 }
 
-export async function getServerSideProps() {
-  const response = await fetch(`${process.env.API_URL}items?is_delivered=false`)
+export async function getServerSideProps(context: GetStaticPropsContext) {
+  const { query } = context.query
+  const response = await fetch(`${process.env.API_URL}items?is_delivered=false${query != undefined ? `&search=${query}` : ``}`)
   const items = await response.json()
 
   // Pass data to the page via props
