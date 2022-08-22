@@ -5,3 +5,5 @@ export const parseDateLocale = (dateObject?: Date) => Moment(dateObject).format(
 export const parseDateUniversal = (dateObject?: Date) => Moment(dateObject).format('YYYY-MM-DD')
 
 export const convertStringToObject = (str: string, format: string) => Moment(str, format).toDate()
+
+export const getCurrentDate = () => Moment().toDate()

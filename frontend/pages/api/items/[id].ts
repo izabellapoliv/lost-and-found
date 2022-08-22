@@ -13,13 +13,13 @@ export default async function handler(_req: NextApiRequest, res: NextApiResponse
       res.status(200).json(items)
     } else if (method == 'PUT') {
       const params = {};
-      ['title', 'owner', 'date_found'].map(field => {
+      ['title', 'owner', 'date_delivered', 'is_delivered'].map(field => {
         if (_req.body[field] != undefined) {
           params[field] = _req.body[field]
         }
       })
-      if (params.date_found != undefined) {
-        params.date_found = parseDateUniversal(convertStringToObject(params.date_found, 'DD/MM/YYYY'))
+      if (params.date_delivered != undefined) {
+        params.date_delivered = parseDateUniversal(convertStringToObject(params.date_delivered, 'DD/MM/YYYY'))
       }
       console.log(params)
 
