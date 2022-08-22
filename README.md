@@ -65,10 +65,15 @@ Postman is recommended for API testing.
 ## TODO next
 
 - Finish frontend
-    - List all items without an owner
-    - Form to set and item as found (inform the owner and date found, default current date)
-    - Form to insert new item
-    - Order items by date found
+    - Homepage must be a list all items without an owner
+        - Sort by date found or title
+        - Search by title
+        - Sidebar menu must be active accordingly
+    - Page to insert/edit item
+    - Set an item as found (must inform the owner and date found, default current date)
+    - Page listing all items already recovered
+    - Dark mode toggle
+    - Fill numbers on the sidebar asynchronously
 - Allow picture upload (need to create database field)
 - Save items to Redis DB rather than SQLite
-- Authentication (soon?)
+- Authentication (soon? who knows)
