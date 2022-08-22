@@ -10,15 +10,16 @@ import type { Item } from '../../interfaces'
 
 type Props = {
     items: Item[],
+    title: string,
 }
 
-export default function Table({ items }: Props) {
+export default function Table({ items, title }: Props) {
     return (
         <Page>
             <>
                 <Header>
                     <>
-                        <Title title={`Lost and Found (but still not recovered)`} />
+                        <Title title={title} />
                         <Actions />
                     </>
                 </Header>

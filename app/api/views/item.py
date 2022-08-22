@@ -3,9 +3,10 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 from api.serializers.item import ItemSerializer
 from api.models.item import Item
+from api.filters.item import ItemFilterSet
 
 class ItemViewSet(viewsets.ModelViewSet):
     queryset = Item.objects.all().order_by('date_found')
     serializer_class = ItemSerializer
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['title']
+    filterset_class = ItemFilterSet

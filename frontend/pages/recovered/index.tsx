@@ -1,9 +1,9 @@
 import Head from 'next/head'
 
-import Sidebar from '../components/Sidebar'
-import Table from '../components/Table'
+import Sidebar from '../../components/Sidebar'
+import Table from '../../components/Table'
 
-import type { Item } from '../interfaces'
+import type { Item } from '../../interfaces'
 
 type Props = {
   items: Item[],
@@ -14,7 +14,7 @@ export default function Home({ items }: Props) {
     <>
       <div className="flex flex-no-wrap">
         <Head>
-          <title>Lost and Found</title>
+          <title>Lost and Recovered</title>
         </Head>
 
         <Sidebar />
@@ -24,7 +24,7 @@ export default function Home({ items }: Props) {
           <div className="w-full h-full rounded">
             <Table
               items={items}
-              title={`Lost and Found (but still not recovered)`}
+              title={`Lost and recovered :)`}
             />
           </div>
         </div>
@@ -34,7 +34,7 @@ export default function Home({ items }: Props) {
 }
 
 export async function getServerSideProps() {
-  const response = await fetch(`${process.env.API_URL}items?owner__isempty=true`)
+  const response = await fetch(`${process.env.API_URL}items?owner__isempty=false`)
   const items = await response.json()
 
   // Pass data to the page via props
