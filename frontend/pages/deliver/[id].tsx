@@ -1,16 +1,10 @@
-import { GetStaticPropsContext } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import FormItem from '../../components/FormItem'
 
 import Sidebar from '../../components/Sidebar'
-import type { Item } from '../../interfaces'
 
-type Props = {
-    item: Item,
-}
-
-export default function Home({ item }: Props) {
+export default function Home() {
     const router = useRouter()
     const { id } = router.query
 
@@ -18,7 +12,8 @@ export default function Home({ item }: Props) {
         e.preventDefault()
 
         const data = {
-            title: e.target.title.value,
+            owner: e.target.owner.value,
+            date_found: e.target.date_found.value,
         }
 
         const options = {
@@ -29,9 +24,9 @@ export default function Home({ item }: Props) {
             body: JSON.stringify(data),
         }
 
-        const response = await fetch(`/api/items/${id}`, options)
+        const response = await fetch(`api/items/${id}`, options)
         if (response.status == 200) {
-            router.reload
+            router.push(`/`)
         }
     }
 
@@ -49,20 +44,10 @@ export default function Home({ item }: Props) {
                     <div className="w-full h-full rounded">
                         <FormItem
                             handleSubmit={handleSubmit}
-                            item={item}
                         />
                     </div>
                 </div>
             </div>
         </>
     )
-}
-
-export async function getServerSideProps(context: GetStaticPropsContext) {
-    const { id } = context.params
-    const response = await fetch(`${process.env.API_URL}items/${id}`)
-    const item = await response.json()
-
-    // Pass data to the page via props
-    return { props: { item } }
 }

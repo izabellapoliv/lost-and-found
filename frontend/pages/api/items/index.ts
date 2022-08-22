@@ -18,6 +18,9 @@ export default async function handler(_req: NextApiRequest, res: NextApiResponse
             })
             const item = await response.json()
             res.status(201).json(item)
+        } else {
+            res.setHeader('Allow', ['GET', 'POST'])
+            res.status(405).end(`Method ${method} Not Allowed`)
         }
     } catch (e) {
         res.status(400).json({
