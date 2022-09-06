@@ -43,7 +43,7 @@ export async function getServerSideProps(context: GetStaticPropsContext) {
   const queryAPI = query != '' ? `&search=${query}` : ``;
 
   const response = await fetch(`${process.env.API_URL}items?is_delivered=false${queryAPI}&ordering=${orderAPI}`);
-  const items = await response.json();
+  const items = (await response.json()).results;
 
   // Pass data to the page via props
   return { props: { items, query, order } }

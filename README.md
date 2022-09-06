@@ -73,9 +73,9 @@ Postman is recommended for API testing.
     - ~~Sidebar menu must be active accordingly~~
     - ~~Page to insert/edit item~~
     - ~~Set an item as found (must inform the owner and date found, default current date)~~
-    - Dark mode toggle
-    - Fill numbers on the sidebar correctly
-- Allow picture upload (need to create database field)
+    - Dark mode toggle (priority)
+    - ~~Fill numbers on the sidebar correctly~~
+- Allow picture upload (need to create database field) (priority)
 - Contextual messages on form submit
 - Save items to Redis DB rather than SQLite
 - Authentication (soon? who knows)

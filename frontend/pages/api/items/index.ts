@@ -7,7 +7,7 @@ export default async function handler(_req: NextApiRequest, res: NextApiResponse
         if (method == 'GET') {
             const response = await fetch(`${process.env.API_URL}items/`)
             const items = await response.json()
-            res.status(200).json(items)
+            res.status(200).json(items.results)
         } else if (method == 'POST') {
             const response = await fetch(`${process.env.API_URL}items/`, {
                 method: "POST",
