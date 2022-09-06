@@ -66,11 +66,11 @@ Postman is recommended for API testing.
 
 - Finish frontend
     - Fix bug on sidebar height
-    - Homepage must be a list all items without an owner
+    - ~~Homepage must be a list all items without an owner~~
         - ~~Show lost items~~
-        - Sort by date found or title
-        - Search by title
-        - Sidebar menu must be active accordingly
+        - ~~Sort by date found or title~~
+        - ~~Search by title~~
+    - ~~Sidebar menu must be active accordingly~~
     - ~~Page to insert/edit item~~
     - ~~Set an item as found (must inform the owner and date found, default current date)~~
     - Dark mode toggle

@@ -11,16 +11,17 @@ import type { Item } from '../../interfaces'
 type Props = {
     items: Item[],
     title: string,
+    order: string | string[],
 }
 
-export default function Table({ items, title }: Props) {
+export default function Table({ items, title, order }: Props) {
     return (
         <Page>
             <>
                 <Header>
                     <>
                         <Title title={title} />
-                        <Actions />
+                        <Actions order={order} />
                     </>
                 </Header>
                 <Body>

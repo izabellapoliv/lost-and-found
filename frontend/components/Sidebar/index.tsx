@@ -38,7 +38,7 @@ export default function Sidebar({ query }: Props) {
                 <div className="px-8">
                     <Logo />
                     <Mobile />
-                    <Search />
+                    <Search query={query} />
                 </div>
                 <Footer />
             </div>

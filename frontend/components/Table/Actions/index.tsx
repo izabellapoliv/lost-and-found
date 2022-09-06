@@ -1,6 +1,16 @@
+import { useRef } from "react";
 import Link from "next/link";
 
-export default function Actions() {
+type Props = {
+    order: string | string[],
+}
+
+export default function Actions({ order }: Props) {
+    const selectForm = useRef(null);
+    const handleChange = () => {
+        selectForm.current?.submit();
+    }
+
     return (
         <div className="sm:flex items-center justify-between">
             <Link href={`report-lost`}>
@@ -8,13 +18,17 @@ export default function Actions() {
                     <p className="text-sm font-medium leading-none text-white">Report lost item</p>
                 </a>
             </Link>
-            <div className="py-3 px-4 flex items-center text-sm font-medium leading-none text-gray-600 bg-gray-200 hover:bg-gray-300 cursor-pointer rounded">
-                <p>Sort By:</p>
-                <select className="focus:outline-none bg-transparent ml-1">
-                    <option className="text-sm text-indigo-800" value={`date_found`}>Latest</option>
-                    <option className="text-sm text-indigo-800" value={`title`}>Title</option>
+            <form
+                ref={selectForm}>
+                <select id="countries"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    onChange={handleChange}
+                    name="order"
+                    defaultValue={order}>
+                    <option value={`date_found`}>Sort by date</option>
+                    <option value={`title`}>Sort by title</option>
                 </select>
-            </div>
+            </form>
         </div>
     )
 }

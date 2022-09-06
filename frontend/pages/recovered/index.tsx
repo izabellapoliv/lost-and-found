@@ -9,12 +9,11 @@ import type { Item } from '../../interfaces'
 
 type Props = {
   items: Item[],
+  query: string | string[],
+  order: string | string[],
 }
 
-export default function Home({ items }: Props) {
-  const router = useRouter()
-  const { query } = router.query
-
+export default function Home({ items, query, order }: Props) {
   return (
     <>
       <div className="flex flex-no-wrap">
@@ -30,6 +29,7 @@ export default function Home({ items }: Props) {
             <Table
               items={items}
               title={`Lost and recovered :)`}
+              order={order}
             />
           </div>
         </div>
@@ -39,10 +39,13 @@ export default function Home({ items }: Props) {
 }
 
 export async function getServerSideProps(context: GetStaticPropsContext) {
-  const { query } = context.query
-  const response = await fetch(`${process.env.API_URL}items?is_delivered=true${query != undefined ? `&search=${query}` : ``}`)
+  const { query = '', order = 'date_found' } = context.query;
+  const orderAPI = (order == 'date_found') ? `-${order}` : `+${order}`;
+  const queryAPI = query != '' ? `&search=${query}` : ``;
+
+  const response = await fetch(`${process.env.API_URL}items?is_delivered=true${queryAPI}&ordering=${orderAPI}`)
   const items = await response.json()
 
   // Pass data to the page via props
-  return { props: { items } }
+  return { props: { items, query, order } }
 }
