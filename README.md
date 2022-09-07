@@ -65,7 +65,7 @@ Postman is recommended for API testing.
 ## TODO next
 
 - Finish frontend
-    - Fix bug on sidebar height
+    - ~~Fix bug on sidebar height~~
     - ~~Homepage must be a list all items without an owner~~
         - ~~Show lost items~~
         - ~~Sort by date found or title~~
@@ -73,7 +73,7 @@ Postman is recommended for API testing.
     - ~~Sidebar menu must be active accordingly~~
     - ~~Page to insert/edit item~~
     - ~~Set an item as found (must inform the owner and date found, default current date)~~
-    - IN PROGRESS: Dark mode toggle (priority)
+    - ~~Dark mode toggle~~
     - ~~Fill numbers on the sidebar correctly~~
 - Allow picture upload (need to create database field) (priority)
 - Contextual messages on form submit

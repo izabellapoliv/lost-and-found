@@ -4,7 +4,7 @@ export default function Search() {
     const { query, darkMode } = useSidebar();
 
     return (
-        <div className="flex justify-center mt-48 mb-4 w-full">
+        <div className="flex justify-center mt-12 mb-4 w-full">
             <form>
                 <div className="relative">
                     <div className="text-slate-600 dark:text-gray-200 absolute ml-4 inset-0 m-auto w-4 h-4">

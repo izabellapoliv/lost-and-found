@@ -14,10 +14,10 @@ export default function Sidebar() {
         <>
             {/* Remove class [ hidden ] and replace [ sm:flex ] with [ flex ] */}
             <div className={`basis-64 shadow h-screen flex-col justify-between flex ${darkMode ? `dark` : ``}`}>
-                <div className="px-8 bg-slate-200 dark:bg-gray-800">
+                <div className="h-full px-8 bg-slate-200 dark:bg-gray-800">
                     <Logo />
-                    <Desktop />
                     <Search />
+                    <Desktop />
                 </div>
                 <div className="bg-slate-200 dark:bg-gray-800">
                     <Footer />
@@ -42,8 +42,8 @@ export default function Sidebar() {
                 </div>
                 <div className="px-8">
                     <Logo />
-                    <Mobile />
                     <Search />
+                    <Mobile />
                 </div>
                 <Footer />
             </div>

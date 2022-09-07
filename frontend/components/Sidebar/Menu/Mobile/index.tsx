@@ -1,6 +1,6 @@
 export default function Mobile() {
     return (
-        <ul className="mt-12">
+        <ul className="mt-4">
             <li className="flex w-full justify-between text-gray-300 hover:text-gray-500 cursor-pointer items-center mb-6">
                 <div className="flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-grid" width={18} height={18} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
