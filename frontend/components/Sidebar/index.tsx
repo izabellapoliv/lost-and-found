@@ -13,7 +13,7 @@ export default function Sidebar() {
     return (
         <>
             {/* Remove class [ hidden ] and replace [ sm:flex ] with [ flex ] */}
-            <div className={`w-64 absolute sm:relative shadow md:h-full flex-col justify-between flex ${darkMode ? `dark` : ``}`}>
+            <div className={`basis-64 shadow h-screen flex-col justify-between flex ${darkMode ? `dark` : ``}`}>
                 <div className="px-8 bg-slate-200 dark:bg-gray-800">
                     <Logo />
                     <Desktop />
@@ -24,7 +24,7 @@ export default function Sidebar() {
                 </div>
             </div>
             <div
-                className={`w-64 z-40 absolute shadow md:h-full flex-col justify-between sm:hidden transition duration-150 ease-in-out ${darkMode ? `dark` : ``}`}
+                className={`z-40 absolute shadow md:h-full flex-col justify-between sm:hidden transition duration-150 ease-in-out ${darkMode ? `dark` : ``}`}
                 id="mobile-nav">
                 <div className="h-10 w-10 bg-slate-200 dark:bg-gray-800 absolute right-0 mt-16 -mr-10 flex items-center shadow rounded-tr rounded-br justify-center cursor-pointer" id="mobile-toggler">
                     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-adjustments" width={20} height={20} viewBox="0 0 24 24" strokeWidth="1.5" stroke="#FFFFFF" fill="none" strokeLinecap="round" strokeLinejoin="round">

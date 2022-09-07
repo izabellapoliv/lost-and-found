@@ -8,7 +8,7 @@ import { SidebarContextProvider } from '../contexts/SidebarContext';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <SidebarContextProvider>
-      <div className="flex flex-no-wrap">
+      <div className="flex flex-row">
         <Sidebar />
         <Component {...pageProps} />
       </div>

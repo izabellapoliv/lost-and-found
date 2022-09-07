@@ -13,7 +13,7 @@ type Props = {
 export default function Row({ item }: Props) {
     return (
         <>
-            <tr className="h-16 border border-gray-100 rounded">
+            <tr className="h-16 border border-gray-100 dark:border-gray-900 rounded">
                 <td>
                     <Picture />
                 </td>

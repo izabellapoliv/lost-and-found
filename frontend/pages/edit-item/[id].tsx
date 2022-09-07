@@ -33,7 +33,7 @@ export default function Home({ item }: Props) {
 
         const response = await fetch(`/api/items/${id}`, options)
         if (response.status == 200) {
-            router.reload
+            router.push(`/`)
         }
     }
 

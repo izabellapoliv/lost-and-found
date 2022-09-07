@@ -21,7 +21,7 @@ export default function Item({ href, currentPage, children }: Props) {
                 }),
             };
 
-            const response = await fetch(`api/quantity`, options);
+            const response = await fetch(`/api/quantity`, options);
             const body = await response.json();
             if (counter.current != null) {
                 counter.current.innerHTML = body.quantity;

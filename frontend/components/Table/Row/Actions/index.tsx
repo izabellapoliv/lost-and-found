@@ -21,7 +21,7 @@ export default function Actions({ item }: Props) {
                 </Link>
             }
             <Link href={`edit-item/${item.id}`}>
-                <a className="mx-2 my-2 bg-gray-100 transition duration-150 ease-in-out hover:bg-gray-200 rounded border border-gray-300 text-gray-600 px-6 py-2 text-xs">
+                <a className="mx-2 my-2 bg-gray-100 dark:bg-gray-800 transition duration-150 ease-in-out hover:bg-gray-200 dark:hover:bg-gray-900 rounded border border-gray-300 dark:border-gray-900 text-gray-600 dark:text-slate-400 px-6 py-2 text-xs">
                     <span className="h-4 w-4">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                             <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
