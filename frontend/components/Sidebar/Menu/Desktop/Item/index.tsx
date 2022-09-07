@@ -30,11 +30,11 @@ export default function Item({ href, currentPage, children }: Props) {
     }, [currentPage, counter]);
 
     return (
-        <li className={`w-full ${currentPage == href ? 'text-gray-300' : 'text-gray-600'} hover:text-gray-500 cursor-pointer mb-6`}>
+        <li className={`w-full ${currentPage == href ? 'text-slate-800 dark:text-gray-300' : 'text-slate-500 dark:text-gray-600'} hover:text-slate-600 dark:hover:text-gray-500 cursor-pointer mb-6`}>
             <Link href={href}>
                 <a className={`items-center flex justify-between`}>
                     {children}
-                    <div className="py-1 px-3 bg-gray-700 rounded text-gray-500 flex items-center justify-center text-xs"
+                    <div className="py-1 px-3 bg-slate-300 dark:bg-gray-700 rounded test-slate-600 dark:text-gray-500 flex items-center justify-center text-xs"
                         ref={counter}>
                         <svg role="status" className="inline w-4 h-4 text-white animate-spin" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="#E5E7EB" />

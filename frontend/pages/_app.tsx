@@ -1,7 +1,8 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
+import dynamic from 'next/dynamic';
 
-import Sidebar from '../components/Sidebar';
+const Sidebar = dynamic(() => import('../components/Sidebar'), { ssr: false });
 import { SidebarContextProvider } from '../contexts/SidebarContext';
 
 function MyApp({ Component, pageProps }: AppProps) {
