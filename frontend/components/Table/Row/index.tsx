@@ -15,7 +15,7 @@ export default function Row({ item }: Props) {
         <>
             <tr className="h-16 border border-gray-100 dark:border-gray-900 rounded">
                 <td>
-                    <Picture />
+                    <Picture item={item} />
                 </td>
                 <td className={``}>
                     <Title item={item} />

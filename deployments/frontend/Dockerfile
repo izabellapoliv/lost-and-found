@@ -14,4 +14,5 @@ ENV PATH /app/node_modules/.bin:$PATH
 RUN npm install --silent
 
 # Inicializa a aplicação
-CMD npm run $NODE_COMMAND
+# CMD npm run $NODE_COMMAND
+CMD npm run dev

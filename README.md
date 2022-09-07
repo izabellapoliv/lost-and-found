@@ -75,7 +75,11 @@ Postman is recommended for API testing.
     - ~~Set an item as found (must inform the owner and date found, default current date)~~
     - ~~Dark mode toggle~~
     - ~~Fill numbers on the sidebar correctly~~
-- IN PROGRESS: Allow picture upload (need to create database field) (priority)
+- IN PROGRESS: Allow picture upload (need to create database field)
+    - Upload picture to backend
+    - Files are lost when container is restarted, need to solve it
+    - Option to remove image
+    - ~~Show current image on edit page~~
 - Contextual messages on form submit
 - Save items to Redis DB rather than SQLite
 - Authentication (soon? who knows)
