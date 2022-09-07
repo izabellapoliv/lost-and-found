@@ -1,10 +1,9 @@
-import Link from 'next/link';
 import { useRouter } from "next/router";
 import Item from './Item';
 
 export default function Desktop() {
     const router = useRouter();
-    const currentPage = router.pathname;
+    const currentPage = router?.pathname;
 
     return (
         <ul className="mt-12">

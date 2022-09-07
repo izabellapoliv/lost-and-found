@@ -1,8 +1,9 @@
-import Head from 'next/head'
-import { useRouter } from 'next/router'
-import FormItem from '../../components/FormItem'
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic';
 
-import Sidebar from '../../components/Sidebar'
+import FormItem from '../../components/FormItem';
+const Content = dynamic(() => import('../../components/Content'), { ssr: false });
 
 export default function Home() {
     const router = useRouter()
@@ -30,22 +31,15 @@ export default function Home() {
 
     return (
         <>
-            <div className="flex flex-no-wrap">
-                <Head>
-                    <title>Report Lost</title>
-                </Head>
+            <Head>
+                <title>Report Lost</title>
+            </Head>
 
-                <Sidebar />
-                {/* Remove class [ h-64 ] when adding a card block */}
-                <div className="container mx-auto py-10 h-64 md:w-4/5 w-11/12 px-6">
-                    {/* Remove class [ border-dashed border-2 border-gray-300 ] to remove dotted border */}
-                    <div className="w-full h-full rounded">
-                        <FormItem
-                            handleSubmit={handleSubmit}
-                        />
-                    </div>
-                </div>
-            </div>
+            <Content>
+                <FormItem
+                    handleSubmit={handleSubmit}
+                />
+            </Content>
         </>
     )
 }

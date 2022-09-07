@@ -1,9 +1,8 @@
+import { useSidebar } from '../../../contexts/SidebarContext';
 
-type Props = {
-    query: string,
-}
+export default function Search() {
+    const { query } = useSidebar();
 
-export default function Search({ query }: Props) {
     return (
         <div className="flex justify-center mt-48 mb-4 w-full">
             <form>

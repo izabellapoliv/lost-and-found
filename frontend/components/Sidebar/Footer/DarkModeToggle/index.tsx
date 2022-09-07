@@ -1,15 +1,13 @@
-import { useRef, useState } from "react";
-import { getCookie, setCookie } from 'cookies-next';
+import { useRef } from "react";
+import { useSidebar } from '../../../../contexts/SidebarContext';
 
 export default function DarkModeToggle() {
     const input = useRef(null);
-    const darkModeCookie = getCookie('darkMode') ?? false;
-    const [darkMode, setDarkMode] = useState(darkModeCookie);
+    const { darkMode, toggleDarkMode } = useSidebar();
 
     const toggleChange = () => {
         const isChecked = input.current?.checked;
-        setCookie('darkMode', isChecked);
-        setDarkMode(isChecked);
+        toggleDarkMode(isChecked);
     }
 
     return (

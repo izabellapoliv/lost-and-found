@@ -1,38 +1,30 @@
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
 
-import Sidebar from '../components/Sidebar'
-import Table from '../components/Table'
-
-import type { Item } from '../interfaces'
+import Table from '../components/Table';
+const Content = dynamic(() => import('../components/Content'), { ssr: false });
+import type { Item } from '../interfaces';
 
 type Props = {
   items: Item[],
-  query: string | string[],
   order: string | string[],
 }
 
-export default function Home({ items, query, order }: Props) {
+export default function Home({ items, order }: Props) {
   return (
     <>
-      <div className="flex flex-no-wrap">
-        <Head>
-          <title>Lost and Found</title>
-        </Head>
+      <Head>
+        <title>Lost and Found</title>
+      </Head>
 
-        <Sidebar query={query == undefined ? '' : query.toString()} />
-        {/* Remove class [ h-64 ] when adding a card block */}
-        <div className="container mx-auto py-10 h-64 md:w-4/5 w-11/12 px-6">
-          {/* Remove class [ border-dashed border-2 border-gray-300 ] to remove dotted border */}
-          <div className="w-full h-full rounded">
-            <Table
-              items={items}
-              title={`Lost and Found (but still not recovered)`}
-              order={order}
-            />
-          </div>
-        </div>
-      </div>
+      <Content>
+        <Table
+          items={items}
+          title={`Lost and Found (but still not recovered)`}
+          order={order}
+        />
+      </Content>
     </>
   )
 }
@@ -46,5 +38,5 @@ export async function getServerSideProps(context: GetStaticPropsContext) {
   const items = (await response.json()).results;
 
   // Pass data to the page via props
-  return { props: { items, query, order } }
+  return { props: { items, order } }
 }
