@@ -5,4 +5,5 @@ export type Item = {
   is_delivered: boolean,
   owner?: string,
   date_delivered?: Date,
+  picture?: string,
 }

@@ -2,6 +2,7 @@ import Form from '../../components/Form'
 import Label from '../../components/Form/Label'
 import Helper from '../../components/Form/Helper'
 import Text from '../../components/Form/Input/Text'
+import File from '../Form/Input/File'
 import Submit from '../../components/Form/Submit'
 import { Item } from '../../interfaces'
 
@@ -26,6 +27,13 @@ export default function FormItem({ item, handleSubmit }: Props) {
                     <Helper
                         text='Try to give it a descriptive name so that other people can recognize it more easily later :)'
                     />
+                    <div className='pt-5'>
+                        <Label
+                            label='Can you upload a picture of the lost item?'
+                            htmlFor='picture'
+                        />
+                        <File id='picture' currentFile={item?.picture} />
+                    </div>
                     <div className='pt-5'>
                         <Submit text='Report' />
                     </div>
